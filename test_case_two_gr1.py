@@ -10,18 +10,18 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 import psycopg2
-from psycopg2 import Error
 import pytest
 
-# chrome_options = Options()
-#
-# chrome_options.add_argument("--disable-extensions")
-# chrome_options.add_argument("--no-sandbox")
-# chrome_options.add_argument("--headless")
+chrome_options = Options()
+
+chrome_options.add_argument("--disable-extensions")
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--headless")
+
 
 def test_create_user():
     """Create and add user to the group"""
-    driver = webdriver.Chrome('/home/jrankel/Resources/chromedriver')
+    driver = webdriver.Chrome('/home/jrankel/Resources/chromedriver', options=chrome_options)
     driver.get('http://localhost:8000/')
     driver.implicitly_wait(10)
     driver.find_element(By.CLASS_NAME, "btn-primary").click()
@@ -60,7 +60,7 @@ def test_delete_info():
     connection.commit()
     mycursor.execute("DELETE FROM auth_user WHERE username='user_one'")
     connection.commit()
-print(test_delete_info())
+
 
 
 

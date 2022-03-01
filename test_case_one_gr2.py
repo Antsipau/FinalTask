@@ -9,7 +9,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 import psycopg2
-from psycopg2 import Error
 import pytest
 
 chrome_options = Options()
@@ -21,7 +20,7 @@ chrome_options.add_argument("--headless")
 def test_create_new_user():
     """Creating new user as admin staff"""
     new_user = "user_as_admin_staff"
-    driver = webdriver.Chrome('/home/jrankel/Resources/chromedriver')
+    driver = webdriver.Chrome('/home/jrankel/Resources/chromedriver', options=chrome_options)
     driver.get('http://localhost:8000/')
     driver.implicitly_wait(10)
     driver.find_element(By.CLASS_NAME, "btn-primary").click()
@@ -59,9 +58,6 @@ def test_exist_new_user_in_db():
     assert new_user == search_user
 
 
-print(test_exist_new_user_in_db)
-
-
 def test_delete_new_user():
     result = []
     new_user = "user_as_admin_staff"
@@ -74,9 +70,6 @@ def test_delete_new_user():
     for i in all_users:
         result.append(i)
     assert new_user not in result
-
-
-print(test_delete_new_user())
 
 
 
