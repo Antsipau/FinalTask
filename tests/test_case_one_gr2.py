@@ -10,6 +10,7 @@ chrome_options.add_argument("--disable-extensions")
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--headless")
 
+
 def test_create_new_user():
     """Creating new user as admin staff"""
     new_user = "user_as_admin_staff"
@@ -37,10 +38,11 @@ def test_create_new_user():
     driver.find_element(By.CSS_SELECTOR, "#login-form > div.submit-row > input[type=submit]").submit()
 
     text = driver.find_element(By.ID, "user-tools").text
-    assert f'Welcome, {new_user}'.lower() in text.lower()
+    assert f'Welcome, {new_user}'.lower() in text.lower(), "Welcome message for registered user"
 
 
 def test_exist_new_user_in_db():
+    """Test user exists in database"""
     new_user = "user_as_admin_staff"
     connection = psycopg2.connect(dbname="postgres", user="postgres", password="postgres", host="localhost")
     mycursor = connection.cursor()
@@ -48,10 +50,11 @@ def test_exist_new_user_in_db():
     search_user = mycursor.fetchall()
     for user in search_user:
         return user
-    assert new_user == search_user
+    assert new_user == search_user, "User with name user_as_admin_staff exists in database"
 
 
 def test_delete_new_user():
+    """Test user delete from database"""
     result = []
     new_user = "user_as_admin_staff"
     connection = psycopg2.connect(dbname="postgres", user="postgres", password="postgres", host="localhost")
@@ -62,6 +65,6 @@ def test_delete_new_user():
     all_users = mycursor.fetchall()
     for i in all_users:
         result.append(i)
-    assert new_user not in result
+    assert new_user not in result, "User with name user_as_admin_staff doesn't exist in database"
 
 

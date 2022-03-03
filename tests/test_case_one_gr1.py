@@ -18,7 +18,7 @@ def test_open_main_mage():
     driver.get('http://localhost:8000/')
     driver.implicitly_wait(10)
     title = driver.title
-    assert title == "Hello, world!"
+    assert title == "Hello, world!", "The title of the main page"
 
 
 def test_enter_admin_page():
@@ -31,7 +31,7 @@ def test_enter_admin_page():
     driver.find_element(By.NAME, "password").send_keys("password")
     driver.find_element(By.CSS_SELECTOR, "#login-form > div.submit-row > input[type=submit]").submit()
     title = driver.title
-    assert title == "Site administration | Django site admin"
+    assert title == "Site administration | Django site admin", "The title is exists"
 
 
 def test_show_group():
@@ -56,4 +56,4 @@ def test_show_group():
     driver.find_element(By.CSS_SELECTOR, "#content-main > div.app-auth.module > table > "
                                          "tbody > tr.model-group > th > a").click()
     group_name = driver.find_element(By.CSS_SELECTOR, "#result_list > tbody > tr > th > a").text
-    assert group_name == "TestGroup"
+    assert group_name == "TestGroup", "TestGroup exists in django admin groups"

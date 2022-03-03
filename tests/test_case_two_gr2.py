@@ -19,7 +19,6 @@ def test_delete_image():
 
     last_image_src = driver.find_element(By.CSS_SELECTOR, ".col-md-4:last-child .card-img-top").get_attribute('src')
 
-
     driver.find_element(By.CLASS_NAME, "btn-primary").click()
     driver.find_element(By.NAME, "username").send_keys("admin")
     driver.find_element(By.NAME, "password").send_keys("password")
@@ -34,4 +33,4 @@ def test_delete_image():
 
     updated_last_image_src = driver.find_element(By.CSS_SELECTOR, ".col-md-4:last-child .card-img-top").get_attribute('src')
 
-    assert last_image_src != updated_last_image_src
+    assert last_image_src != updated_last_image_src, "Last image before updating page not equal after updating"

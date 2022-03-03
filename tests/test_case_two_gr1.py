@@ -42,10 +42,11 @@ def test_create_user():
         for j in search_user_id_in_auth_user_groups:
             if i == j:
                 result.append(i)
-    assert search_user_id_in_auth_user == result
+    assert search_user_id_in_auth_user == result, "user_one is present in the TestGroup."
 
 
 def test_delete_info():
+    """Test delete information about username and user group from database"""
     connection = psycopg2.connect(dbname="postgres", user="postgres", password="postgres", host="localhost")
     mycursor = connection.cursor()
     mycursor.execute("DELETE FROM auth_user_groups")
