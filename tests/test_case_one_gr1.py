@@ -46,7 +46,6 @@ def test_show_group():
     except Error as e:
         print(f"Connection error {e} occurred")
 
-
     driver = webdriver.Chrome('/home/jrankel/Resources/chromedriver', options=chrome_options)
     driver.get('http://localhost:8000/')
     driver.implicitly_wait(10)
