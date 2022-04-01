@@ -14,7 +14,7 @@ chrome_options.add_argument("--headless")
 def test_create_new_user():
     """Creating new user as admin staff"""
     new_user = "user_as_admin_staff"
-    driver = webdriver.Chrome('/home/jrankel/Resources/chromedriver', options=chrome_options)
+    driver = webdriver.Chrome('/home/jrankel/resources/chromedriver', options=chrome_options)
     driver.get('http://localhost:8000/')
     driver.implicitly_wait(10)
     driver.find_element(By.CLASS_NAME, "btn-primary").click()

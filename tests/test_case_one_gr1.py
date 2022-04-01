@@ -14,7 +14,7 @@ chrome_options.add_argument("--headless")
 
 def test_open_main_mage():
     """Test that shows us that we can open main page"""
-    driver = webdriver.Chrome('/home/jrankel/Resources/chromedriver', options=chrome_options)
+    driver = webdriver.Chrome('/home/jrankel/resources/chromedriver', options=chrome_options)
     driver.get('http://localhost:8000/')
     driver.implicitly_wait(10)
     title = driver.title
@@ -23,7 +23,7 @@ def test_open_main_mage():
 
 def test_enter_admin_page():
     """Test that shows us that we can open admin page"""
-    driver = webdriver.Chrome('/home/jrankel/Resources/chromedriver', options=chrome_options)
+    driver = webdriver.Chrome('/home/jrankel/resources/chromedriver', options=chrome_options)
     driver.get('http://localhost:8000/')
     driver.implicitly_wait(10)
     driver.find_element(By.CLASS_NAME, "btn-primary").click()
@@ -46,7 +46,7 @@ def test_show_group():
     except Error as e:
         print(f"Connection error {e} occurred")
 
-    driver = webdriver.Chrome('/home/jrankel/Resources/chromedriver', options=chrome_options)
+    driver = webdriver.Chrome('/home/jrankel/resources/chromedriver', options=chrome_options)
     driver.get('http://localhost:8000/')
     driver.implicitly_wait(10)
     driver.find_element(By.CLASS_NAME, "btn-primary").click()

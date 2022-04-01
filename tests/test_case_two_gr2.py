@@ -13,7 +13,7 @@ chrome_options.add_argument("--headless")
 
 def test_delete_image():
     """Delete first image from the main page"""
-    driver = webdriver.Chrome('/home/jrankel/Resources/chromedriver', options=chrome_options)
+    driver = webdriver.Chrome('/home/jrankel/resources/chromedriver', options=chrome_options)
     driver.get("http://localhost:8000/")
     driver.implicitly_wait(10)
 

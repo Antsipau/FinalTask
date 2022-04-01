@@ -13,7 +13,7 @@ chrome_options.add_argument("--headless")
 
 def test_create_user():
     """Create and add user to the group"""
-    driver = webdriver.Chrome('/home/jrankel/Resources/chromedriver', options=chrome_options)
+    driver = webdriver.Chrome('/home/jrankel/resources/chromedriver', options=chrome_options)
     driver.get('http://localhost:8000/')
     driver.implicitly_wait(10)
     driver.find_element(By.CLASS_NAME, "btn-primary").click()

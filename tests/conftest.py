@@ -14,6 +14,20 @@ chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--headless")
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @pytest.fixture(autouse=True)
 def new_user():
     """Create new user"""
