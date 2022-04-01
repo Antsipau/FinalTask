@@ -7,6 +7,8 @@ from psycopg2 import Error
 import requests
 import pytest
 
+from config.config import TestData
+
 chrome_options = Options()
 
 chrome_options.add_argument("--disable-extensions")
@@ -14,18 +16,12 @@ chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--headless")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+@pytest.fixture(params="chrome", scope="class")
+def init_driver(request):
+    web_driver = webdriver.Chrome(executable_path=TestData.CHROME_EXECUTABLE_PATH)
+    request.cls.driver = web_driver
+    yield
+    web_driver.close()
 
 
 @pytest.fixture(autouse=True)
