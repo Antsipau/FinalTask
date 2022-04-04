@@ -6,7 +6,6 @@ from pages.base_page import BasePage
 
 class LoginPage(BasePage):
 
-    """By locators - OR"""
     USERNAME_FIELD = (By.NAME, "username")
     PASSWORD_FIELD = (By.NAME, "password")
     LOGIN_BUTTON = (By.CSS_SELECTOR, "#login-form > div.submit-row > input[type=submit]")
