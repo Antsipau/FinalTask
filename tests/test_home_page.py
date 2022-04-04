@@ -37,5 +37,3 @@ class TestHomePage(BaseTest):
         """a test to make sure the "navigation bar" is clickable"""
         self.homePage = HomePage(self.driver)
         self.homePage.click_navbar()
-
-    time.sleep(5)
