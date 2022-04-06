@@ -28,12 +28,13 @@ class HomePage(BasePage):
 
     def click_navbar(self):
         """"to check navbar is clickable"""
-        x = self.do_click(self.NAVIGATION_BAR)
-        return bool(x)
+        flag = self.do_click(self.NAVIGATION_BAR)
+        return bool(flag)
 
     def get_text_from_go_to_admin_button(self):
         """to check name of the "go to admin" button"""
         return self.get_element_text(self.GO_TO_ADMIN_BUTTON)
 
     def get_home_page_header_name(self):
+        """to check home page header name"""
         return self.get_element_text(self.HOME_PAGE_HEADER)

@@ -2,6 +2,7 @@ import time
 
 import pytest
 
+
 from config.config import TestData
 from pages.admin_page import AdminPage
 from pages.login_page import LoginPage
@@ -29,3 +30,23 @@ class TestAdmin(BaseTest):
         adminPage.click_on_view_site_link()
         home_page_title = self.homePage.get_title(TestData.HOME_PAGE_TITLE)
         assert home_page_title == TestData.HOME_PAGE_TITLE
+
+    def test_get_admin_header(self):
+        """a test to make sure that header exists"""
+        self.homePage = HomePage(self.driver)
+        self.homePage.click_admin_button()
+        self.loginPage = LoginPage(self.driver)
+        adminPage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        page_header = adminPage.get_admin_page_header()
+        assert page_header == TestData.ADMIN_PAGE_HEADER
+
+    def test_get_account_name(self):
+        """a test to get account name"""
+        self.homePage = HomePage(self.driver)
+        self.homePage.click_admin_button()
+        self.loginPage = LoginPage(self.driver)
+        adminPage = self.loginPage.do_login(TestData.USER_NAME, TestData.PASSWORD)
+        account_name = adminPage.get_account_name()
+        assert account_name == TestData.ACCOUNT_NAME
+
+

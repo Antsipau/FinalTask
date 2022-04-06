@@ -39,6 +39,3 @@ class TestHomePage(BaseTest):
         self.homePage.click_navbar()
         header_name = self.homePage.get_home_page_header_name()
         assert header_name == TestData.HOME_PAGE_HEADER_NAME
-
-
-    time.sleep(5)

@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
@@ -24,7 +25,6 @@ def init_driver(request):
         web_driver = webdriver.Firefox(executable_path=TestData.FIREFOX_EXECUTABLE_PATH)
     request.cls.driver = web_driver
     yield
-    time.sleep(5)
     web_driver.close()
 
 
