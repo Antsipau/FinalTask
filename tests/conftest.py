@@ -17,7 +17,7 @@ chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--headless")
 
 
-@pytest.fixture(params=["chrome", "firefox"], scope="class")
+@pytest.fixture(params=["chrome", "firefox"])
 def init_driver(request):
     if request.param == "chrome":
         web_driver = webdriver.Chrome(executable_path=TestData.CHROME_EXECUTABLE_PATH)
@@ -25,7 +25,16 @@ def init_driver(request):
         web_driver = webdriver.Firefox(executable_path=TestData.FIREFOX_EXECUTABLE_PATH)
     request.cls.driver = web_driver
     yield
-    web_driver.close()
+    web_driver.quit()
+
+
+
+
+
+
+
+
+
 
 
 # @pytest.fixture(autouse=True)
