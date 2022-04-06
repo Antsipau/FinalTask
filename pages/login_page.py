@@ -11,9 +11,7 @@ class LoginPage(BasePage):
     LOGIN_BUTTON = (By.CSS_SELECTOR, "#login-form > div.submit-row > input[type=submit]")
 
     def __init__(self, driver):
-        """constructor of the page class"""
         super().__init__(driver)
-        self.driver.get(TestData.BASE_URL)
 
     def get_login_page_title(self, title):
         """to get title of the page"""

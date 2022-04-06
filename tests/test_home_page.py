@@ -9,7 +9,7 @@ from tests.test_base import BaseTest
 class TestHomePage(BaseTest):
 
     def test_get_home_page_title(self):
-        """a test to make sure the home page exists"""
+        """a test to make sure the "home page" exists"""
         self.homePage = HomePage(self.driver)
         home_page_title = self.homePage.get_title(TestData.HOME_PAGE_TITLE)
         assert home_page_title == TestData.HOME_PAGE_TITLE

@@ -7,7 +7,12 @@ class TestData:
     USER_NAME = "admin"
     PASSWORD = "password"
 
-    LOGIN_PAGE_TITLE = "Log in | Django site admin"
     HOME_PAGE_TITLE = "Hello, world!"
-    GO_TO_ADMIN_BUTTON_NAME = "Go to Admin"
     HOME_PAGE_HEADER_NAME = "About"
+    GO_TO_ADMIN_BUTTON_NAME = "Go to Admin"
+
+    LOGIN_PAGE_TITLE = "Log in | Django site admin"
+
+    ADMIN_PAGE_TITLE = "Site administration | Django site admin"
+
+    TEST_DATABASE_NAME = "TestGroup"
