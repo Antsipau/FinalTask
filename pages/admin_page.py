@@ -18,15 +18,19 @@ class AdminPage(BasePage):
         super().__init__(driver)
 
     def get_admin_page_title(self, title):
+        """to get title of the page"""
         return self.get_title(title)
 
     def click_on_view_site_link(self):
+        """to click on "view site" link"""
         self.do_click(self.VIEW_SITE_LINK)
 
-    def click_on_posts_button(self):
-        self.do_click()
+    def click_on_posts_link(self):
+        """to click on "posts" link """
+        self.do_click(self.POSTS_LINK)
 
     def get_account_name(self):
+        """to get an account nam"""
         if self.element_is_visible(self.ACCOUNT_NAME):
             return self.get_element_text(self.ACCOUNT_NAME)
 

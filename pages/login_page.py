@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from config.config import TestData
+from pages.admin_page import AdminPage
 from pages.base_page import BasePage
 
 
@@ -34,5 +34,6 @@ class LoginPage(BasePage):
         self.do_send_key(self.USERNAME_FIELD, username)
         self.do_send_key(self.PASSWORD_FIELD, password)
         self.do_click(self.LOGIN_BUTTON)
+        return AdminPage(self.driver)
 
 
