@@ -5,9 +5,9 @@ from pages.base_page import BasePage
 
 
 class HomePage(BasePage):
-
     GO_TO_ADMIN_BUTTON = (By.CLASS_NAME, "btn-primary")
     NAVIGATION_BAR = (By.CLASS_NAME, "navbar-toggler")
+    HOME_PAGE_HEADER = (By.CSS_SELECTOR, "#navbarHeader > div > div > div.col-sm-8.col-md-7.py-4 > h4")
 
     def __init__(self, driver):
         """constructor of the page class"""
@@ -28,11 +28,12 @@ class HomePage(BasePage):
 
     def click_navbar(self):
         """"to check navbar is clickable"""
-        self.do_click(self.NAVIGATION_BAR)
+        x = self.do_click(self.NAVIGATION_BAR)
+        return bool(x)
 
     def get_text_from_go_to_admin_button(self):
         """to check name of the "go to admin" button"""
         return self.get_element_text(self.GO_TO_ADMIN_BUTTON)
 
-
-
+    def get_home_page_header_name(self):
+        return self.get_element_text(self.HOME_PAGE_HEADER)

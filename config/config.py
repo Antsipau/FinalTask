@@ -10,3 +10,4 @@ class TestData:
     LOGIN_PAGE_TITLE = "Log in | Django site admin"
     HOME_PAGE_TITLE = "Hello, world!"
     GO_TO_ADMIN_BUTTON_NAME = "Go to Admin"
+    HOME_PAGE_HEADER_NAME = "About"

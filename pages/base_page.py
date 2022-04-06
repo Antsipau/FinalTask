@@ -20,7 +20,8 @@ class BasePage:
     def get_elements_text(self, by_locator):
         """to get names of elements"""
         elements = WebDriverWait(self.driver, 10).until(EC.visibility_of_all_elements_located(by_locator))
-        return elements.text
+        for element in elements:
+            return element.text
 
     def element_is_visible(self, by_locator):
         """to know that element is visible"""
@@ -28,13 +29,12 @@ class BasePage:
         return bool(element)
 
     def elements_are_visible(self, by_locator):
-        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_all_elements_located(by_locator))
-        return bool(element)
+        elements = WebDriverWait(self.driver, 10).until(EC.visibility_of_all_elements_located(by_locator))
+        return bool(elements)
 
     def element_is_enabled(self, by_locator):
         """to know that element is enabled"""
-        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
-        return bool(element)
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
 
     def do_click(self, by_locator):
         """to do click on element"""
